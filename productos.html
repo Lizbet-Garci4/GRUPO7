@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Ferretería - Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .card {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .cart-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: none; /* Oculto inicialmente */
+        }
+        .cart-button button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cart-button i {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tienda de Ferretería</h1>
+        <p>Bienvenidos a la tienda de Ferretería</p>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactos.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="products" class="container">
+        <h2>Nuestros Productos</h2>
+        <div class="row" id="product-list">
+            <!-- Producto Cemento Sol -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/cemento.jpg" class="card-img-top" alt="Cemento">
+                    <div class="card-body">
+                        <h5 class="card-title">Cemento Sol Portland Tipo 1 I 42.5 kg</h5>
+                        <p class="card-text">Cemento Sol Portland de alta calidad para tus proyectos de construcción.</p>
+                        <p class="card-text">Precio: S/ 29.90</p>
+                        <p class="card-text">Valor en tokens: 10 tokens</p>
+                        <button class="btn btn-primary" onclick="addToCart('Cemento Sol', 29.90, 10)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto Cemento Pacasmayo -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/cemento1.jpg" class="card-img-top" alt="Cemento">
+                    <div class="card-body">
+                        <h5 class="card-title">Cemento Pacasmayo Portland Compuesto I 42.5 kg</h5>
+                        <p class="card-text">Cemento Portland compuesto I. Diseñado para usos generales y que, además de su óptimo desarrollo de resistencias, presenta una excelente trabajabilidad.</p>
+                        <p class="card-text">Precio: S/ 23.90</p>
+                        <p class="card-text">Valor en tokens: 8 tokens</p>
+                        <button class="btn btn-primary" onclick="addToCart('Cemento Pacasmayo', 23.90, 8)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto Ladrillo -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/ladrillo.jpg" class="card-img-top" alt="Ladrillo">
+                    <div class="card-body">
+                        <h5 class="card-title">Ladrillo King Kong 18 huecos</h5>
+                        <p class="card-text">Ladrillo macizo diseñado para soportar cargas o pesos.</p>
+                        <p class="card-text">Precio: S/ 1.83</p>
+                        <p class="card-text">Valor en tokens: 1 token</p>
+                        <button class="btn btn-primary" onclick="addToCart('Ladrillo King Kong', 1.83, 1)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto Madera -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/madera.jpg" class="card-img-top" alt="Madera">
+                    <div class="card-body">
+                        <h5 class="card-title">Madera</h5>
+                        <p class="card-text">Madera de alta calidad para todo tipo de construcción.</p>
+                        <p class="card-text">Precio: S/ 25.00</p>
+                        <p class="card-text">Valor en tokens: 5 tokens</p>
+                        <button class="btn btn-primary" onclick="addToCart('Madera', 25, 5)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto Clavos -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/clavos.jpg" class="card-img-top" alt="Clavos">
+                    <div class="card-body">
+                        <h5 class="card-title">Clavos</h5>
+                        <p class="card-text">Clavos de acero inoxidable, ideales para construcción.</p>
+                        <p class="card-text">Precio: S/ 5.00</p>
+                        <p class="card-text">Valor en tokens: 1 token</p>
+                        <button class="btn btn-primary" onclick="addToCart('Clavos', 5, 1)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto Pintura -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/pintura.png" class="card-img-top" alt="Pintura">
+                    <div class="card-body">
+                        <h5 class="card-title">Pintura</h5>
+                        <p class="card-text">Pintura de alta calidad, resistente y duradera.</p>
+                        <p class="card-text">Precio: S/ 30.00</p>
+                        <p class="card-text">Valor en tokens: 5 tokens</p>
+                        <button class="btn btn-primary" onclick="addToCart('Pintura', 30, 5)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart-button">
+        <button id="cartButton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="fas fa-shopping-cart"></i> Ver Carrito (<span id="cartCount">0</span>)
+        </button>
+    </div>
+
+    <!-- Modal del carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Tokens</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartItems">
+                            <!-- Los productos se mostrarán aquí dinámicamente -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td id="totalPrice">S/ 0.00</td>
+                                <td id="totalTokens">0 tokens</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToPayment()">Pagar</button>
+                </div>                    
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tienda Ferretería. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cart = [];
+
+        function addToCart(product, price, tokens) {
+            const existingProduct = cart.find(item => item.product === product);
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ product, price, tokens, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartButton = document.querySelector('.cart-button');
+            const totalPriceElem = document.getElementById('totalPrice');
+            const totalTokensElem = document.getElementById('totalTokens');
+
+            cartCount.textContent = cart.length;
+
+            let totalTokens = 0;
+            let totalPrice = 0;
+
+            cartItems.innerHTML = ''; // Limpiar la tabla de productos
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+
+                // Producto
+                const productCell = document.createElement('td');
+                productCell.textContent = item.product;
+                row.appendChild(productCell);
+
+                // Cantidad
+                const quantityCell = document.createElement('td');
+                quantityCell.textContent = `x${item.quantity}`;
+                row.appendChild(quantityCell);
+
+                // Precio
+                const priceCell = document.createElement('td');
+                priceCell.textContent = `S/ ${(item.price * item.quantity).toFixed(2)}`;
+                row.appendChild(priceCell);
+
+                // Tokens
+                const tokensCell = document.createElement('td');
+                tokensCell.textContent = `${item.tokens * item.quantity} tokens`;
+                row.appendChild(tokensCell);
+
+                // Botones de acción
+                const actionsCell = document.createElement('td');
+
+                // Botón de reducir
+                const reduceButton = document.createElement('button');
+                reduceButton.className = 'btn btn-warning btn-sm';
+                reduceButton.textContent = '-';
+                reduceButton.onclick = () => reduceQuantity(item.product);
+                actionsCell.appendChild(reduceButton);
+
+                // Botón de eliminar
+                const button = document.createElement('button');
+                button.className = 'btn btn-danger btn-sm';
+                button.innerHTML = '<i class="fas fa-trash"></i>';
+                button.onclick = () => removeFromCart(item.product);
+                actionsCell.appendChild(button);
+
+                row.appendChild(actionsCell);
+                cartItems.appendChild(row);
+
+                totalTokens += item.tokens * item.quantity;
+                totalPrice += item.price * item.quantity;
+            });
+
+            // Actualizar el total
+            totalPriceElem.textContent = `S/ ${totalPrice.toFixed(2)}`;
+            totalTokensElem.textContent = `${totalTokens} tokens`;
+
+            // Mostrar el botón del carrito si hay productos en él
+            cartButton.style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        function reduceQuantity(product) {
+            const existingProduct = cart.find(item => item.product === product);
+            if (existingProduct) {
+                existingProduct.quantity--;
+                if (existingProduct.quantity <= 0) {
+                    removeFromCart(product);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function removeFromCart(product) {
+            cart = cart.filter(item => item.product !== product);
+            updateCart();
+        }
+
+        // Redirigir al archivo de pago
+        function redirectToPayment() {
+            window.location.href = 'pago.html'; // Redirigir al archivo de pago
+        }
+    </script>
+</body>
+</html>
